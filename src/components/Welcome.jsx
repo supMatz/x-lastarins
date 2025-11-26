@@ -1,7 +1,4 @@
 import {useGSAP} from "@gsap/react";
-
-const x = "````````````````````";
-
 import { useRef } from "react";
 import gsap from "gsap";
 
