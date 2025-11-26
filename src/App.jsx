@@ -1,9 +1,10 @@
-import React from 'react'
-import NavBar from "#components/NavBar.jsx";
+import { NavBar, Welcome } from "#components/index.js"
+
 function App() {
     return (
         <main>
             <NavBar />
+            <Welcome />
         </main>
     )
 }

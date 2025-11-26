@@ -1,9 +1,16 @@
-import dayjs from "dayjs";
+import dayjs from 'dayjs';
+import 'dayjs/locale/it';
+import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
 
 import {navIcons, navLinks} from "#constants/index.js";
 
 
 const NavBar = () => {
+    dayjs.extend(utc);
+    dayjs.extend(timezone);
+    dayjs.locale('it'); // formattazione data italiana
+
     return (
         <nav>
             <div>
@@ -29,7 +36,7 @@ const NavBar = () => {
                 </ul>
             </div>
 
-            <time>{dayjs().format("ddd MMM D h:mm A").toLocaleUpperCase()}</time>
+            <time>{dayjs().tz("Europe/Rome").format("ddd D MMM HH:mm").toUpperCase()}</time>
         </nav>
     )
 }
