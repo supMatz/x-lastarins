@@ -1,10 +1,11 @@
-import { NavBar, Welcome } from "#components/index.js"
+import { NavBar, Welcome, Dock } from "#components/index.js"
 
 function App() {
     return (
         <main>
             <NavBar />
             <Welcome />
+            <Dock/>
         </main>
     )
 }
