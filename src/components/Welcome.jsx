@@ -20,7 +20,7 @@ const renderText = (text, className, baseWeight = 400) => {
 }
 
 const setUpTextHover = (container, type) => {
-    if(!container) return;
+    if(!container) return () => {};
 
     const animateLetter = (letter, weight, duration = 0.25) => {
         return gsap.to(letter, {
@@ -42,7 +42,6 @@ const setUpTextHover = (container, type) => {
             const letterCenterX = letterRect.left - containerRect.left + letterRect.width / 2;
             const distance = Math.abs(mouseX - letterCenterX);
             const intensity = Math.exp(-(distance ** 2) / 10000);
-            const weight = Math.round(min + (max - min) * intensity);
 
             animateLetter(letter, min + (max - min) * intensity);
         });
