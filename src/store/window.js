@@ -15,7 +15,7 @@ const useWindowStore = create(
                 win.zIndex = state.nextZIndex;
                 win.data = data ?? win.data;
                 state.nextZIndex++;
-        }),
+            }),
 
         closeWindow: (windowKey) => set((state) => {
             const win = state.windows[windowKey];
@@ -29,7 +29,13 @@ const useWindowStore = create(
             const win = state.windows[windowKey];
             if(!win) return; // defensive control
             win.zIndex = state.nextZIndex++;
-        })
+        }),
+
+        toggleMaximize: (windowKey) => set((state) => {
+            const win = state.windows[windowKey];
+            if(!win) return; // defensive control
+            win.isMaximized = !win.isMaximized;
+        }),
 
     })),
 );

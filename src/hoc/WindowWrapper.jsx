@@ -7,8 +7,9 @@ import gsap from "gsap";
 const WindowWrapper = (Component, windowKey) => {
     const Wrapped = (props) => {
         const  { focusWindow, windows } = useWindowStore();
-        const { isOpen, zIndex } = windows[windowKey];
+        const { isOpen, zIndex, isMaximized } = windows[windowKey];
         const ref = useRef(null);
+        const draggableRef = useRef(null);
 
         useGSAP(() => {
             const el = ref.current;
@@ -18,20 +19,55 @@ const WindowWrapper = (Component, windowKey) => {
 
             gsap.fromTo(el,
                 { scale: 0.8, opacity: 0, y: 40 },
-                { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: "power3.out" },
+                {
+                    scale: 1,
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.4,
+                    ease: "power3.out"
+                },
             );
-        }, [isOpen]) // ogni volta che viene chiusa o aperta questa parte di codice viene eseguita
+        }, [isOpen])
 
         useGSAP(() => {
             const el = ref.current;
             if(!el) return;
 
-            const [instance] =  Draggable.create(el,
-                { onPress: () => focusWindow(windowKey)});
+            const [instance] = Draggable.create(el, {
+                onPress: () => focusWindow(windowKey)
+            });
+
+            draggableRef.current = instance;
 
             return () => instance.kill();
         })
 
+        useLayoutEffect(() => {
+            const el = ref.current;
+            if(!el) return;
+
+            if(isMaximized) {
+                gsap.to(el, {
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100vw',
+                    height: '100vh',
+                    x: 0,
+                    y: 0,
+                    duration: 0.3,
+                    ease: "power2.inOut"
+                });
+            } else {
+                gsap.to(el, {
+                    position: 'absolute',
+                    width: '',
+                    height: '',
+                    duration: 0.3,
+                    ease: "power2.inOut"
+                });
+            }
+        }, [isMaximized]);
 
         useLayoutEffect(() => {
             const el = ref.current;
@@ -40,15 +76,21 @@ const WindowWrapper = (Component, windowKey) => {
         }, [isOpen]);
 
         return (
-            <section id={windowKey} ref={ref} style={{zIndex}}
-             className="absolute">
+            <section
+                id={windowKey}
+                ref={ref}
+                style={{zIndex}}
+                className={`absolute ${isMaximized ? 'maximized' : ''}`}
+            >
                 <Component {...props} />
             </section>
         )
     };
+
     Wrapped.displayName = `WindowWrapper(${Component.displayName ||
-      Component.name || "Component"}`;
+    Component.name || "Component"})`;
 
     return Wrapped;
 }
+
 export default WindowWrapper;

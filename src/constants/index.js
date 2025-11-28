@@ -11,7 +11,7 @@ const navLinks = [
     },
     {
         id: 4,
-        name: "CV",
+        name: "Resume",
         type: "resume",
     },
 ];
@@ -38,64 +38,70 @@ const navIcons = [
 const dockApps = [
     {
         id: "finder",
-        name: "Portfolio", // was "Finder"
+        name: "Area Professionale",
         icon: "finder.png",
         canOpen: true,
     },
     {
         id: "safari",
-        name: "Articles", // was "Safari"
+        name: "Area Umanistica",
         icon: "safari.png",
         canOpen: true,
     },
     {
         id: "photos",
-        name: "Gallery", // was "Photos"
+        name: "Ed. Civica",
         icon: "photos.png",
         canOpen: true,
     },
     {
+        id: "vscode",
+        name: "Apra",
+        icon: "vscode.png",
+        canOpen: true,
+    },
+    {
         id: "contact",
-        name: "Contact", // or "Get in touch"
+        name: "Contatti",
         icon: "contact.png",
         canOpen: true,
     },
     {
         id: "terminal",
-        name: "Skills", // was "Terminal"
+        name: "Skills",
         icon: "terminal.png",
         canOpen: true,
     },
     {
         id: "trash",
-        name: "Archive", // was "Trash"
+        name: "Old CV",
         icon: "trash.png",
         canOpen: false,
     },
 ];
 
-const blogPosts = [
+const  areeUmanistiche = [
     {
         id: 1,
         date: "Sep 2, 2025",
         title:
-            "TypeScript Explained: What It Is, Why It Matters, and How to Master It",
+            "1",
         image: "/images/blog1.png",
-        link: "https://jsmastery.com/blog/typescript-explained-what-it-is-why-it-matters-and-how-to-master-it",
+        link: "",
     },
     {
         id: 2,
-        date: "Aug 28, 2025",
-        title: "The Ultimate Guide to Mastering Three.js for 3D Development",
+        date: "Sep 28, 2025",
+        title: "2",
         image: "/images/blog2.png",
-        link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-three-js-for-3d-development",
+        link: "",
     },
     {
         id: 3,
-        date: "Aug 15, 2025",
-        title: "The Ultimate Guide to Mastering GSAP Animations",
+        date: "Oct 15, 2025",
+        title: "3",
         image: "/images/blog3.png",
-        link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-gsap-animations",
+        link: "",
     },
 ];
 
@@ -212,7 +218,7 @@ export {
     navLinks,
     navIcons,
     dockApps,
-    blogPosts,
+    areeUmanistiche,
     techStack,
     socials,
     photosLinks,
@@ -229,7 +235,7 @@ const WORK_LOCATION = {
         // ▶ Project 1
         {
             id: 5,
-            name: "Nike Ecommerce Website Application",
+            name: "Fluxa",
             icon: "/images/folder.png",
             kind: "folder",
             position: "top-10 left-5", // icon position inside Finder
@@ -237,150 +243,39 @@ const WORK_LOCATION = {
             children: [
                 {
                     id: 1,
-                    name: "Nike Project.txt",
+                    name: "Features.txt",
                     icon: "/images/txt.png",
                     kind: "file",
                     fileType: "txt",
                     position: "top-5 left-10",
                     description: [
-                        "The Nike eCommerce website is a sleek and modern platform designed for shopping the latest Nike collections.",
-                        "Instead of a simple online store, it delivers an immersive experience with bold visuals, interactive product displays, and smooth navigation.",
-                        "Think of it like walking into a flagship Nike store—but right from your phone or laptop.",
-                        "It's built with Next.js and Tailwind, ensuring fast performance, responsive design, and a clean, premium look.",
+                        "-Infrastruttura globale:" +
+                        " esecuzione alla massima velocità in tutto il mondo\n",
+                        "-Sicurezza:" +
+                        " crittografia dati sensibili con protocolli di sicurezza avanzatin\n",
+                        "-Sincronizzazione in Tempo Reale:" +
+                        " sincronizzazione instantanea tra dispositivi\n",
+                        "-Storage Illimitato:" +
+                        " salva e gestisci progetti senza limiti di spazio\n",
                     ],
                 },
                 {
                     id: 2,
-                    name: "nike.com",
+                    name: "fluxa.vercel.app",
                     icon: "/images/safari.png",
                     kind: "file",
                     fileType: "url",
-                    href: "https://youtu.be/fZdTYswuZjU?si=Awjl-pIst9e09_UU",
+                    href: "https://fluxa.vercel.app/",
                     position: "top-10 right-20",
                 },
                 {
                     id: 4,
-                    name: "nike.png",
+                    name: "compiler.png",
                     icon: "/images/image.png",
                     kind: "file",
                     fileType: "img",
                     position: "top-52 right-80",
                     imageUrl: "/images/project-1.png",
-                },
-                {
-                    id: 5,
-                    name: "Design.fig",
-                    icon: "/images/plain.png",
-                    kind: "file",
-                    fileType: "fig",
-                    href: "https://google.com",
-                    position: "top-60 right-20",
-                },
-            ],
-        },
-
-        // ▶ Project 2
-        {
-            id: 6,
-            name: "AI Resume Analyzer",
-            icon: "/images/folder.png",
-            kind: "folder",
-            position: "top-52 right-80",
-            windowPosition: "top-[20vh] left-7",
-            children: [
-                {
-                    id: 1,
-                    name: "AI Resume Analyzer Project.txt",
-                    icon: "/images/txt.png",
-                    kind: "file",
-                    fileType: "txt",
-                    position: "top-5 right-10",
-                    description: [
-                        "AI Resume Analyzer is a smart tool that helps you perfect your resume with instant feedback.",
-                        "Instead of guessing what recruiters want, you get AI-powered insights on keywords, formatting, and overall impact.",
-                        "Think of it like having a career coach—pointing out strengths, fixing weaknesses, and boosting your chances of landing interviews.",
-                        "It's built with Next.js and Tailwind, so it runs fast, looks professional, and works seamlessly on any device.",
-                    ],
-                },
-                {
-                    id: 2,
-                    name: "ai-resume-analyzer.com",
-                    icon: "/images/safari.png",
-                    kind: "file",
-                    fileType: "url",
-                    href: "https://youtu.be/iYOz165wGkQ?si=R1hs8Legl200m0Cl",
-                    position: "top-20 left-20",
-                },
-                {
-                    id: 4,
-                    name: "ai-resume-analyzer.png",
-                    icon: "/images/image.png",
-                    kind: "file",
-                    fileType: "img",
-                    position: "top-52 left-80",
-                    imageUrl: "/images/project-2.png",
-                },
-                {
-                    id: 5,
-                    name: "Design.fig",
-                    icon: "/images/plain.png",
-                    kind: "file",
-                    fileType: "fig",
-                    href: "https://google.com",
-                    position: "top-60 left-5",
-                },
-            ],
-        },
-
-        // ▶ Project 3
-        {
-            id: 7,
-            name: "Food Delivery App",
-            icon: "/images/folder.png",
-            kind: "folder",
-            position: "top-10 left-80",
-            windowPosition: "top-[33vh] left-7",
-            children: [
-                {
-                    id: 1,
-                    name: "Food Delivery App Project.txt",
-                    icon: "/images/txt.png",
-                    kind: "file",
-                    fileType: "txt",
-                    position: "top-5 left-10",
-                    description: [
-                        "Our Food Delivery App is a fast and convenient way to order meals from your favorite restaurants.",
-                        "Instead of making calls or waiting in line, you can browse menus, customize orders, and track deliveries in real time.",
-                        "Think of it like having your favorite restaurants in your pocket—ready to deliver anytime, anywhere.",
-                        "It’s built with React Native, so it works smoothly on both iOS and Android with a clean, modern design.",
-                    ],
-                },
-                {
-                    id: 2,
-                    name: "food-delivery-app.com",
-                    icon: "/images/safari.png",
-                    kind: "file",
-                    fileType: "url",
-                    href: "https://youtu.be/LKrX390fJMw?si=cExkuVhf2DTV9G2-",
-                    position: "top-10 right-20",
-                },
-                {
-                    id: 4,
-                    name: "food-delivery-app.png",
-                    icon: "/images/image.png",
-                    kind: "file",
-                    fileType: "img",
-                    position: "top-52 right-80",
-                    imageUrl: "/images/project-3.png",
-                },
-                {
-                    id: 5,
-                    name: "Design.fig",
-                    icon: "/images/plain.png",
-                    kind: "file",
-                    fileType: "fig",
-                    href: "https://google.com",
-                    position: "top-60 right-20",
                 },
             ],
         },
@@ -453,8 +348,6 @@ const RESUME_LOCATION = {
             icon: "/images/pdf.png",
             kind: "file",
             fileType: "pdf",
-            // you can add `href` if you want to open a hosted resume
-            // href: "/your/resume/path.pdf",
         },
     ],
 };
@@ -497,14 +390,13 @@ export const locations = {
 const INITIAL_Z_INDEX = 1000;
 
 const WINDOW_CONFIG = {
-    finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-    contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-    resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-    safari: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-    photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-    terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-    txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-    imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+    finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMaximized: false, },
+    contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMaximized: false, },
+    resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMaximized: false, },
+    safari: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMaximized: false, },
+    photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMaximized: false, },
+    terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMaximized: false, },
+    viewer: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, isMaximized: false, },
 };
 
 export { INITIAL_Z_INDEX, WINDOW_CONFIG };
