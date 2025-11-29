@@ -234,7 +234,7 @@ const WORK_LOCATION = {
     children: [
         // ▶ Project 1
         {
-            id: 5,
+            id: 1,
             name: "Fluxa",
             icon: "/images/folder.png",
             kind: "folder",
@@ -279,30 +279,31 @@ const WORK_LOCATION = {
                 },
             ],
         },
+        // ▶ Project 2
         {
-            id: 6,
+            id: 2,
             name: "Grand Blue",
             icon: "/images/folder.png",
             kind: "folder",
-            position: "top-10 left-5", // icon position inside Finder
+            position: "top-7 right-5",
             windowPosition: "top-[5vh] left-5",
             children: [
                 {
                     id: 1,
-                    name: "Features.txt",
+                    name: "pages.txt",
                     icon: "/images/txt.png",
                     kind: "file",
                     fileType: "txt",
                     position: "top-5 left-10",
                     description: [
-                        "-Infrastruttura globale:" +
-                        " esecuzione alla massima velocità in tutto il mondo\n",
-                        "-Sicurezza:" +
-                        " crittografia dati sensibili con protocolli di sicurezza avanzatin\n",
-                        "-Sincronizzazione in Tempo Reale:" +
-                        " sincronizzazione instantanea tra dispositivi\n",
-                        "-Storage Illimitato:" +
-                        " salva e gestisci progetti senza limiti di spazio\n",
+                        "-Home\n"+
+                        "-Users (Admin)\n"+
+                        "-Profile\n" +
+                        "-Activities\n"+
+                        "-Rentals\n"+
+                        "-Pricing\n" +
+                        "-Reviews\n"+
+                        "-404 custom\n"
                     ],
                 },
                 {
@@ -316,12 +317,41 @@ const WORK_LOCATION = {
                 },
                 {
                     id: 4,
-                    name: "diving-landing.png",
+                    name: "mobile-landing.png",
                     icon: "/images/image.png",
                     kind: "file",
                     fileType: "img",
                     position: "top-52 right-80",
-                    imageUrl: "/images/project-1.png",
+                    imageUrl: "/images/diving-landing.png",
+                },
+            ],
+        },
+        // ▶ Project 2
+        {
+            id: 3,
+            name: "Iphone Clone",
+            icon: "/images/folder.png",
+            kind: "folder",
+            position: "top-60 right-53",
+            windowPosition: "top-[5vh] left-5",
+            children: [
+                {
+                    id: 1,
+                    name: "github repo",
+                    icon: "/images/safari.png",
+                    kind: "file",
+                    fileType: "url",
+                    href: "https://github.com/supMatz/iphone-cerioni",
+                    position: "top-10 right-20",
+                },
+                {
+                    id: 2,
+                    name: "3d-renders-section.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-52 right-80",
+                    imageUrl: "/images/iphone-renders.png",
                 },
             ],
         },
