@@ -16,12 +16,11 @@ const Finder = () => {
         if(['fig', 'url'].includes(item.fileType) && item.href)
             return window.open(item.href, "_blank");
 
-        // ✅ Usa "viewer" per txt e img
         if(['txt', 'img'].includes(item.fileType)) return openWindow("viewer", item);
     };
 
     const renderList = (name, items) =>(
-        <div>
+        <>
             <h3>{name}</h3>
             <ul>
                 {items.map((item) => (
@@ -29,7 +28,7 @@ const Finder = () => {
                         key={item.id}
                         onClick={() => setActiveLocation(item)}
 
-                        className={clsx(item.id === activeLocation ? "active" : "not-active")}
+                        className={clsx(item.id === activeLocation?.id ? "active" : "not-active")}
                     >
                         <img
                             src={item.icon}
@@ -43,7 +42,7 @@ const Finder = () => {
                     </li>
                 ))}
             </ul>
-        </div>
+        </>
     );
 
     return <>

@@ -10,6 +10,7 @@ const WindowWrapper = (Component, windowKey) => {
         const { isOpen, zIndex, isMaximized } = windows[windowKey];
         const ref = useRef(null);
         const draggableRef = useRef(null);
+        const previousStateRef = useRef({ isMaximized: false });
 
         useGSAP(() => {
             const el = ref.current;
@@ -23,9 +24,10 @@ const WindowWrapper = (Component, windowKey) => {
                     scale: 1,
                     opacity: 1,
                     y: 0,
-                    duration: 0.4,
-                    ease: "power3.out"
-                },
+                    duration: 0.5,
+                    ease: "power3.out",
+                    force3D: true, // Forced GPU acceleration
+                }
             );
         }, [isOpen])
 
@@ -34,7 +36,9 @@ const WindowWrapper = (Component, windowKey) => {
             if(!el) return;
 
             const [instance] = Draggable.create(el, {
-                onPress: () => focusWindow(windowKey)
+                onPress: () => focusWindow(windowKey),
+                trigger: el.querySelector('#window-header'),
+                force3D: true, // GPU acceleration
             });
 
             draggableRef.current = instance;
@@ -44,27 +48,54 @@ const WindowWrapper = (Component, windowKey) => {
 
         useLayoutEffect(() => {
             const el = ref.current;
+            const draggable = draggableRef.current;
             if(!el) return;
 
+            if (previousStateRef.current.isMaximized === isMaximized) return;
+            previousStateRef.current.isMaximized = isMaximized;
+
             if(isMaximized) {
+                if(draggable) draggable.disable();
+
                 gsap.to(el, {
                     position: 'fixed',
                     top: 0,
                     left: 0,
                     width: '100vw',
                     height: '100vh',
+                    maxWidth: '100vw',
+                    maxHeight: '100vh',
                     x: 0,
                     y: 0,
-                    duration: 0.3,
-                    ease: "power2.inOut"
+                    duration: 0.4,
+                    ease: "power2.inOut",
+                    force3D: true, // GPU acceleration
+                    clearProps: "transform",
+                    onStart: () => {
+                        el.style.willChange = 'transform, width, height, top, left';
+                    },
+                    onComplete: () => {
+                        el.style.willChange = 'auto';
+                    }
                 });
             } else {
+                if(draggable) draggable.enable();
+
                 gsap.to(el, {
                     position: 'absolute',
-                    width: '',
-                    height: '',
-                    duration: 0.3,
-                    ease: "power2.inOut"
+                    width: 'auto',
+                    height: 'auto',
+                    maxWidth: '',
+                    maxHeight: '',
+                    duration: 0.4,
+                    ease: "power2.inOut",
+                    force3D: true, // GPU acceleration
+                    onStart: () => {
+                        el.style.willChange = 'transform, width, height, top, left';
+                    },
+                    onComplete: () => {
+                        el.style.willChange = 'auto';
+                    }
                 });
             }
         }, [isMaximized]);

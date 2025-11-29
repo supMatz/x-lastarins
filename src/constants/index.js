@@ -141,29 +141,29 @@ const socials = [
         id: 1,
         text: "Github",
         icon: "/icons/github.svg",
-        bg: "#f4656b",
-        link: "https://github.com/JavaScript-Mastery-Pro",
+        bg: "#5e5a5a",
+        link: "https://github.com/supMatz",
     },
     {
         id: 2,
-        text: "Platform",
-        icon: "/icons/atom.svg",
-        bg: "#4bcb63",
+        text: "Instagram",
+        icon: "/icons/instagram.svg",
+        bg: "#a152ff",
         link: "https://jsmastery.com/",
     },
     {
         id: 3,
         text: "Twitter/X",
         icon: "/icons/twitter.svg",
-        bg: "#ff866b",
-        link: "https://x.com/jsmasterypro",
+        bg: "#4079e3",
+        link:"https://x.com/cerioni_mattiaa",
     },
     {
         id: 4,
         text: "LinkedIn",
         icon: "/icons/linkedin.svg",
         bg: "#05b6f6",
-        link: "https://www.linkedin.com/company/javascriptmastery/posts/?feedView=all",
+        link: "www.linkedin.com/in/mattia-cerioni-07aab02b3",
     },
 ];
 
@@ -239,7 +239,7 @@ const WORK_LOCATION = {
             icon: "/images/folder.png",
             kind: "folder",
             position: "top-10 left-5", // icon position inside Finder
-            windowPosition: "top-[5vh] left-5", // optional: Finder window position
+            windowPosition: "top-[5vh] left-5",
             children: [
                 {
                     id: 1,
@@ -271,6 +271,52 @@ const WORK_LOCATION = {
                 {
                     id: 4,
                     name: "compiler.png",
+                    icon: "/images/image.png",
+                    kind: "file",
+                    fileType: "img",
+                    position: "top-52 right-80",
+                    imageUrl: "/images/project-1.png",
+                },
+            ],
+        },
+        {
+            id: 6,
+            name: "Grand Blue",
+            icon: "/images/folder.png",
+            kind: "folder",
+            position: "top-10 left-5", // icon position inside Finder
+            windowPosition: "top-[5vh] left-5",
+            children: [
+                {
+                    id: 1,
+                    name: "Features.txt",
+                    icon: "/images/txt.png",
+                    kind: "file",
+                    fileType: "txt",
+                    position: "top-5 left-10",
+                    description: [
+                        "-Infrastruttura globale:" +
+                        " esecuzione alla massima velocità in tutto il mondo\n",
+                        "-Sicurezza:" +
+                        " crittografia dati sensibili con protocolli di sicurezza avanzatin\n",
+                        "-Sincronizzazione in Tempo Reale:" +
+                        " sincronizzazione instantanea tra dispositivi\n",
+                        "-Storage Illimitato:" +
+                        " salva e gestisci progetti senza limiti di spazio\n",
+                    ],
+                },
+                {
+                    id: 2,
+                    name: "under-construction",
+                    icon: "/images/safari.png",
+                    kind: "file",
+                    fileType: "url",
+                    href: "",
+                    position: "top-10 right-20",
+                },
+                {
+                    id: 4,
+                    name: "diving-landing.png",
                     icon: "/images/image.png",
                     kind: "file",
                     fileType: "img",
@@ -326,10 +372,9 @@ const ABOUT_LOCATION = {
             subtitle: "Meet the Developer Behind the Code",
             image: "/images/adrian.jpg",
             description: [
-                "Hey! I’m Adrian 👋, a web developer who enjoys building sleek, interactive websites that actually work well.",
-                "I specialize in JavaScript, React, and Next.js—and I love making things feel smooth, fast, and just a little bit delightful.",
-                "I’m big on clean UI, good UX, and writing code that doesn’t need a search party to debug.",
-                "Outside of dev work, you'll find me tweaking layouts at 2AM, sipping overpriced coffee, or impulse-buying gadgets I absolutely convinced myself I needed 😅",
+                "Ciao sono Mattia 👋, un web developer a cui piace costruire siti interattivi e gradevoli che funzionano effettivamente bene.",
+                "Per le mie creazioni uso JavaScript/Typescript, React, and Next.js or Vite. Mi piace rendere ogni UX smooth, responsive e semplice.",
+                "Progetto e sviluppo buone UI e UX, e scrivo codice a per cui non serve un team per debuggarlo.",
             ],
         },
     ],

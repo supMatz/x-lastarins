@@ -11,6 +11,10 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
 @theme {
     --font-georama: "Georama", sans-serif;
@@ -36,7 +40,7 @@ body {
     }
 
     nav {
-        @apply flex justify-between items-center bg-white/12 backdrop-blur-3xl p-2 px-5 select-none text-gray-300;
+        @apply flex justify-between items-center bg-white/15 backdrop-blur-3xl p-2 px-5 select-none text-black;
 
         div {
             @apply flex items-center max-sm:w-full max-sm:justify-center gap-5;
@@ -55,7 +59,7 @@ body {
         }
 
         time {
-            @apply text-sm font-medium text-white;
+            @apply text-sm font-medium text-black;
         }
     }
 }
