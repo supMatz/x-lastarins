@@ -2,7 +2,7 @@ import WindowWrapper from "#hoc/WindowWrapper.jsx";
 import {WindowControls} from "#components/index.js";
 import useWindowStore from "#store/window.js";
 
-const Text = () => {
+const File = () => {
     const { windows } = useWindowStore();
     const data = windows.viewer?.data;
 
@@ -17,7 +17,7 @@ const Text = () => {
                 <h2>{name}</h2>
             </div>
 
-            <div className="p-5 space-y-6 bg-white">
+            <div className="p-5 space-y-6 bg-white rounded-b-lg overflow-hidden">
                 {imageUrl && (
                     <div className="w-full">
                         <img src={imageUrl} alt={name} className="w-full h-auto rounded" />
@@ -36,5 +36,5 @@ const Text = () => {
     )
 }
 
-const TextWindow = WindowWrapper(Text, "viewer");
-export default TextWindow;
+const FileWindow = WindowWrapper(File, "viewer");
+export default FileWindow;

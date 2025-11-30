@@ -20,7 +20,7 @@ const NavBar = () => {
                 <p className="font-semibold">Portfolio Cerioni</p>
             </div>
 
-            <div className="absolute left-1/2 -translate-x-1/2">
+            <div className="absolute left-1/2 -translate-x-1/2 font-semibold">
                 <ul className="flex gap-8">
                     {navLinks.map(({id, name, type})=> (
                         <li key={id} onClick={() => openWindow(type)}>

@@ -240,20 +240,24 @@ body {
     }
 
     #photos {
-        @apply max-w-3xl absolute top-96 left-1/2 -translate-y-1/2 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+        @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+        width: 1000px;
+        max-width: 90vw;
 
         .sidebar {
             @apply w-3/12 flex-none bg-gray-50 border-r border-gray-200 flex flex-col p-5;
 
             h2 {
-                @apply text-xs font-medium text-gray-400 mb-1;
+                @apply text-xs font-medium text-gray-400 mb-3;
             }
 
             ul {
                 li {
-                    @apply flex space-y-1 items-center gap-2 px-3 py-2 rounded-md cursor-pointer transition-colors;
+                    @apply flex items-center gap-2 px-3 py-2 rounded-md cursor-pointer transition-colors;
 
-                    &:first-child {
+                    @apply hover:bg-gray-100;
+
+                    &.active {
                         @apply bg-blue-100 text-blue-700;
                     }
 
@@ -269,14 +273,17 @@ body {
         }
 
         .gallery {
-            @apply p-5;
+            @apply p-5 flex-1;
 
             ul {
                 @apply grid grid-cols-5 grid-rows-5 gap-2.5;
 
                 li {
+                    @apply cursor-pointer transition-transform hover:scale-105;
+
                     img {
                         @apply size-full object-cover rounded-lg;
+                        max-height: 250px;
                     }
 
                     &:first-child {
@@ -297,6 +304,17 @@ body {
                 }
             }
         }
+
+        .experience-content {
+            @apply flex-1;
+            max-height: calc(100vh - 100px);
+        }
+    }
+
+    #photos.maximized {
+        transform: translate(0, 0) !important;
+        top: 0 !important;
+        left: 0 !important;
     }
 
     #resume {
@@ -353,6 +371,149 @@ body {
         }
     }
 
+    #vscode {
+        @apply absolute w-4xl left-1/4 top-24 shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+        height: 800px;
+        h2 {
+            margin-left: 20px;
+        }
+
+        /* DARK THEME */
+        .vscode-dark {
+            @apply bg-[#1e1e1e] text-gray-300;
+
+            .vscode-sidebar {
+                @apply bg-[#333333] border-r border-[#1e1e1e];
+            }
+
+            .vscode-tab {
+                @apply text-gray-400 hover:bg-[#2a2a2a];
+
+                &.active {
+                    @apply bg-[#1e1e1e] text-white border-l-2 border-blue-500;
+                }
+            }
+
+            .vscode-tab-bar {
+                @apply bg-[#252526] border-b border-[#1e1e1e];
+            }
+
+            .vscode-file-tab {
+                @apply bg-[#1e1e1e] text-gray-300 border-r border-[#252526];
+            }
+
+            .vscode-editor {
+                @apply bg-[#1e1e1e];
+
+                &::-webkit-scrollbar {
+                    width: 12px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background: rgba(255, 255, 255, 0.3);
+                    border-radius: 6px;
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.5);
+                    }
+                }
+            }
+
+            .vscode-code {
+                @apply text-gray-300;
+            }
+        }
+
+        /* LIGHT THEME */
+        .vscode-light {
+            @apply bg-white text-gray-800;
+
+            .vscode-sidebar {
+                @apply bg-gray-100 border-r border-gray-200;
+            }
+
+            .vscode-tab {
+                @apply text-gray-600 hover:bg-blue-100; /* Azzurrino su hover */
+
+                &.active {
+                    @apply bg-white text-blue-600 border-l-2 border-blue-600;
+                }
+            }
+
+            .vscode-tab-bar {
+                @apply bg-gray-50 border-b border-gray-200;
+            }
+
+            .vscode-file-tab {
+                @apply bg-white text-gray-700 border-r border-gray-200;
+                transition: background-color 0.2s ease;
+
+                &:hover {
+                    @apply bg-blue-50 text-blue-700;
+                }
+            }
+
+            .vscode-editor {
+                @apply bg-white;
+
+                &::-webkit-scrollbar {
+                    width: 12px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background: rgba(59, 130, 246, 0.3);
+                    border-radius: 6px;
+
+                    &:hover {
+                        background: rgba(59, 130, 246, 0.5);
+                    }
+                }
+            }
+
+            .vscode-code {
+                @apply text-gray-800;
+            }
+        }
+
+        /* COMPONENTI COMUNI */
+        .vscode-sidebar {
+            @apply w-16 flex flex-col items-center py-4 gap-2;
+        }
+
+        .vscode-tab {
+            @apply w-12 h-12 flex items-center justify-center rounded-md cursor-pointer transition-all;
+        }
+
+        .vscode-content {
+            @apply flex-1 flex flex-col overflow-hidden;
+        }
+
+        .vscode-tab-bar {
+            @apply flex items-center px-2 py-1;
+        }
+
+        .vscode-file-tab {
+            @apply flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-t-md;
+        }
+
+        .vscode-editor {
+            @apply flex-1 overflow-auto p-6;
+        }
+
+        .vscode-code {
+            @apply font-roboto text-sm leading-relaxed whitespace-pre-wrap;
+            font-family: 'Roboto Mono', 'Courier New', monospace;
+        }
+    }
+
     #txtfile {
         @apply w-md absolute top-36 right-32 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
@@ -391,7 +552,7 @@ body {
                 }
 
                 p {
-                    @apply text-sm text-white text-center px-1 rounded-md group-hover:bg-blue-500 transition-colors max-w-40;
+                    @apply text-sm text-white text-center px-1 rounded-md group-hover:bg-blue-600 transition-colors max-w-40;
                 }
             }
         }

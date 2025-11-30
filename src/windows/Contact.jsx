@@ -10,9 +10,9 @@ const Contact = () => {
         </div>
 
         <div className="p-5 space-y-5">
-            <img src="/images/adrian.jpg" alt="" className="w-20 rounded-full" />
+            <img src="/images/pfp.png" alt="" className="w-20 rounded-full select-none" draggable={false} />
 
-            <h3>Lets' Connect</h3>
+            <h3>Let's Connect</h3>
             <p>Problemi? Domande e approfondimenti? Mi trovi qua: <br/>
                mattiacerioni12@gmail.com
             </p>
@@ -21,7 +21,13 @@ const Contact = () => {
                 {socials.map(({id, bg, link, icon, text}) => (
                     <li key={id} style={{backgroundColor: bg}}>
                         <a href={link} target="_blank" rel="noopener noreferrer">
-                            <img src={icon} alt={text} className="size-5"/>
+                            <img
+                                src={icon}
+                                alt={text}
+                                className="size-5"
+                                draggable={false}
+                            />
+
                             <p>{text}</p>
                         </a>
                     </li>
