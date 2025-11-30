@@ -84,24 +84,20 @@ const  areeUmanistiche = [
     {
         id: 1,
         date: "Sep 2, 2025",
-        title:
-            "1",
-        image: "/images/blog1.png",
-        link: "",
+        title: "1",
+        description: "",
     },
     {
         id: 2,
         date: "Sep 28, 2025",
         title: "2",
-        image: "/images/blog2.png",
-        link: "",
+        description: "",
     },
     {
         id: 3,
         date: "Oct 15, 2025",
         title: "3",
-        image: "/images/blog3.png",
-        link: "",
+        description: "",
     },
 ];
 
@@ -544,7 +540,7 @@ const ABOUT_LOCATION = {
             fileType: "txt",
             position: "top-60 left-5",
             subtitle: "Meet the Developer Behind the Code",
-            image: "/images/adrian.jpg",
+            image: "/images/pfp.png",
             description: [
                 "Ciao sono Mattia 👋, un web developer a cui piace costruire siti interattivi e gradevoli che funzionano effettivamente bene.",
                 "Per le mie creazioni uso JavaScript/Typescript, React, e Next.js / Vite. Mi piace rendere ogni UX smooth, responsive e semplice.",
@@ -585,16 +581,16 @@ const TRASH_LOCATION = {
             kind: "file",
             fileType: "img",
             position: "top-10 left-10",
-            imageUrl: "/images/trash-1.png",
+            imageUrl: "/images/3d-cv-landing.png",
         },
         {
             id: 2,
-            name: "trash2.png",
-            icon: "/images/image.png",
+            name: "3d-portfolio-cerioni",
+            icon: "/images/safari.png",
             kind: "file",
-            fileType: "img",
+            fileType: "url",
+            href: "https://3d-portfolio-cerioni.vercel.app/",
             position: "top-40 left-80",
-            imageUrl: "/images/trash-2.png",
         },
     ],
 };

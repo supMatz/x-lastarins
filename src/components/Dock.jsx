@@ -100,9 +100,9 @@ const Dock = () => {
                         <button
                             type='button'
                             className='dock-icon'
-                            aria-label={name}
+                            aria-label={app.name}
                             data-tooltip-id="dock-tooltip"
-                            data-tooltip-content={name}
+                            data-tooltip-content={app.name}
                             data-tooltip-delay-show={150}
                             onClick={() => handleDockClick(app)}
                         >

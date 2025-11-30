@@ -51,19 +51,20 @@ const Safari = () => {
                 <h2>Area Umanistica</h2>
 
                 <div className="space-y-8">
-                    {areeUmanistiche.map(({id, image, title, date, link}) => (
+                    Under Contruction...
+
+                    {/*POI ANDRANNO RI-IMPORTATE LE IMMAGINI NEL PARAMETRO DEL MAP (image)*/}
+
+                    {areeUmanistiche.map(({id, title, date, description}) => (
                         <div key={id} className="blog-post">
                             <div className="col-span-2">
-                                <img src={image} alt={title} />
+                                {/*<img src={image} alt={title}/> */}
                             </div>
 
                             <div className="content">
                                 <p>{date}</p>
                                 <h3>{title}</h3>
-                                <a href={link} target="_blank" rel="noopener noreferrer">
-                                    Scopri di più
-                                    <MoveRight className="icon-hover" />
-                                </a>
+                                <p>{description}</p>
                             </div>
                         </div>
                     ))}
