@@ -215,7 +215,7 @@ const photosTabsContent = [
             "    sapendo quando chiedere aiuto.\n\n",
             "Sono grato ad APRA Vargroup per questa opportunità formativa che ha consolidato la mia" +
             "    passione per lo sviluppo software e mi ha dato una visione concreta del lavoro che voglio" +
-            "    svolgere nel mio futuro professionale.\n\n\n",
+            "    svolgere nel mio futuro professionale.\n\n",
         ],
     },
 ];
