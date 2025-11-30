@@ -40,7 +40,7 @@ body {
     }
 
     nav {
-        @apply flex justify-between items-center bg-white/15 backdrop-blur-3xl p-2 px-5 select-none text-black;
+        @apply flex justify-between items-center bg-gray-400 backdrop-blur-3xl p-2 px-5 select-none text-black;
 
         div {
             @apply flex items-center max-sm:w-full max-sm:justify-center gap-5;
