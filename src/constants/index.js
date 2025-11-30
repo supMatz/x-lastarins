@@ -68,13 +68,13 @@ const dockApps = [
     },
     {
         id: "terminal",
-        name: "Skills",
+        name: "Competenze",
         icon: "terminal.png",
         canOpen: true,
     },
     {
         id: "trash",
-        name: "Old CV",
+        name: "Sito Vecchio",
         icon: "trash.png",
         canOpen: false,
     },
