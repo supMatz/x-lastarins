@@ -239,84 +239,6 @@ body {
         }
     }
 
-    #photos {
-        @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
-        width: 1000px;
-        max-width: 90vw;
-
-        .sidebar {
-            @apply w-3/12 flex-none bg-gray-50 border-r border-gray-200 flex flex-col p-5;
-
-            h2 {
-                @apply text-xs font-medium text-gray-400 mb-3;
-            }
-
-            ul {
-                li {
-                    @apply flex items-center gap-2 px-3 py-2 rounded-md cursor-pointer transition-colors;
-
-                    @apply hover:bg-gray-100;
-
-                    &.active {
-                        @apply bg-blue-100 text-blue-700;
-                    }
-
-                    img {
-                        @apply w-4;
-                    }
-
-                    p {
-                        @apply text-sm font-medium;
-                    }
-                }
-            }
-        }
-
-        .gallery {
-            @apply p-5 flex-1;
-
-            ul {
-                @apply grid grid-cols-5 grid-rows-5 gap-2.5;
-
-                li {
-                    @apply cursor-pointer transition-transform hover:scale-105;
-
-                    img {
-                        @apply size-full object-cover rounded-lg;
-                        max-height: 250px;
-                    }
-
-                    &:first-child {
-                        @apply row-start-1 row-span-3 col-start-1 col-span-3;
-                    }
-
-                    &:nth-child(2) {
-                        @apply row-start-1 row-span-3 col-start-4 col-span-2;
-                    }
-
-                    &:nth-child(3) {
-                        @apply row-start-4 row-span-2 col-start-3 col-span-3;
-                    }
-
-                    &:last-child {
-                        @apply row-start-4 row-span-2 col-start-1 col-span-2;
-                    }
-                }
-            }
-        }
-
-        .experience-content {
-            @apply flex-1;
-            max-height: calc(100vh - 100px);
-        }
-    }
-
-    #photos.maximized {
-        transform: translate(0, 0) !important;
-        top: 0 !important;
-        left: 0 !important;
-    }
-
     #resume {
         @apply w-fit h-fit absolute top-16 left-7/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
@@ -367,6 +289,184 @@ body {
                 p {
                     @apply text-sm text-center font-medium w-40;
                 }
+            }
+        }
+    }
+
+    #calendar {
+        @apply absolute w-[650px] h-[750px] left-1/4 top-20 shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+
+        /* Ensure proper positioning and sizing */
+        min-height: 750px;
+        max-height: 90vh;
+
+        /* Calendar specific styles */
+        .calendar-container {
+            @apply flex flex-col h-full;
+        }
+
+        /* Header styling */
+        #window-header {
+            @apply flex-shrink-0;
+
+            h2 {
+                @apply font-bold text-sm;
+            }
+        }
+
+        /* Main content area */
+        .calendar-content {
+            @apply flex-1 flex flex-col p-6 overflow-hidden;
+            min-height: 0; /* Important for flexbox scrolling */
+        }
+
+        /* Calendar grid */
+        .calendar-grid {
+            @apply flex-1 grid grid-cols-7 gap-2;
+            min-height: 0;
+        }
+
+        /* Day cells */
+        .calendar-day {
+            @apply aspect-square relative flex flex-col items-center justify-center rounded-md transition-colors duration-200;
+
+            &.today {
+                @apply bg-red-400/20 text-white font-semibold;
+            }
+
+            &.has-hangout {
+                @apply ring-1 ring-red-500;
+            }
+
+            &:hover {
+                @apply bg-gray-700;
+            }
+        }
+
+        /* Stats section */
+        .calendar-stats {
+            @apply flex-shrink-0 grid grid-cols-4 gap-3 mt-4;
+
+            .stat-card {
+                @apply flex flex-col bg-gray-800/50 rounded-lg p-3 border border-gray-700/50 transition-all duration-200;
+
+                &:hover {
+                    @apply bg-gray-800/70 border-gray-600/50;
+                }
+
+                .stat-label {
+                    @apply text-[10px] text-gray-500 uppercase tracking-wider mb-1 font-semibold;
+                }
+
+                .stat-value {
+                    @apply text-xl font-bold;
+
+                    &.next {
+                        @apply text-red-400;
+                    }
+
+                    &.last {
+                        @apply text-gray-300;
+                    }
+
+                    &.total {
+                        @apply text-blue-400;
+                    }
+
+                    &.rating {
+                        @apply text-yellow-400;
+                    }
+                }
+
+                .stat-details {
+                    @apply text-[10px] text-gray-500 mt-0.5;
+                }
+
+                .stat-empty {
+                    @apply text-xs text-gray-500 italic;
+                }
+            }
+        }
+
+        /* Navigation buttons */
+        .calendar-nav-button {
+            @apply p-2 hover:bg-gray-700 rounded-lg transition-colors;
+
+            svg {
+                @apply w-5 h-5 text-gray-400;
+            }
+        }
+
+        /* Month/Year header */
+        .calendar-header {
+            @apply text-center;
+
+            h3 {
+                @apply text-xl font-semibold text-red-400;
+            }
+
+            button {
+                @apply text-sm text-red-500 hover:text-red-400 mt-1 transition-colors;
+            }
+        }
+
+        /* Day labels */
+        .calendar-day-labels {
+            @apply grid grid-cols-7 gap-2 mb-2;
+
+            .day-label {
+                @apply text-center text-xs font-medium text-gray-500;
+            }
+        }
+
+        /* Divider */
+        .calendar-divider {
+            @apply border-gray-700 my-1  flex-shrink-0;
+        }
+
+        /* Star indicators on calendar days */
+        .star-indicators {
+            @apply flex gap-0.5 mt-0.5;
+
+            span {
+                @apply text-[8px] text-red-400;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            @apply w-[95vw] h-auto left-1/2 -translate-x-1/2;
+            max-height: 85vh;
+
+            .calendar-content {
+                @apply p-4;
+            }
+
+            .calendar-stats {
+                @apply grid-cols-2 gap-2;
+            }
+        }
+
+        /* Dark theme enhancements */
+        .calendar-background {
+            @apply bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900;
+        }
+
+        /* Scrollbar styling for calendar content */
+        .calendar-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .calendar-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .calendar-content::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.3);
             }
         }
     }

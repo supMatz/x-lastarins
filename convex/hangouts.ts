@@ -25,12 +25,12 @@ export const getByDate = query({
 export const create = mutation({
     args: {
         date: v.string(),
-        description: v.string(),
-        stars: v.number(),
+        description: v.optional(v.string()),
+        stars: v.optional(v.number()),
     },
     handler: async (ctx, args) => {
-        // Validate stars rating
-        if (args.stars < 1 || args.stars > 5) {
+        // Validate stars rating only if provided
+        if (args.stars !== undefined && (args.stars < 1 || args.stars > 5)) {
             throw new Error("Stars must be between 1 and 5");
         }
 
@@ -46,8 +46,8 @@ export const create = mutation({
 
         const hangoutId = await ctx.db.insert("hangouts", {
             date: args.date,
-            description: args.description,
-            stars: args.stars,
+            description: args.description || "",
+            stars: args.stars || undefined, // Può essere undefined
             createdAt: Date.now(),
         });
 
@@ -59,18 +59,18 @@ export const create = mutation({
 export const update = mutation({
     args: {
         id: v.id("hangouts"),
-        description: v.string(),
-        stars: v.number(),
+        description: v.optional(v.string()),
+        stars: v.optional(v.number()),
     },
     handler: async (ctx, args) => {
-        // Validate stars rating
-        if (args.stars < 1 || args.stars > 5) {
+        // Validate stars rating only if provided
+        if (args.stars !== undefined && (args.stars < 1 || args.stars > 5)) {
             throw new Error("Stars must be between 1 and 5");
         }
 
         await ctx.db.patch(args.id, {
-            description: args.description,
-            stars: args.stars,
+            description: args.description || "",
+            stars: args.stars || undefined, // Può essere undefined
         });
 
         return args.id;

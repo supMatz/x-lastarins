@@ -1,26 +1,16 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import {monthNames} from "#constants/index.js";
+import { monthNames } from "#constants/index.js";
 import gsap from "gsap";
 
 const HangoutModal = ({ isOpen, onClose, onSave, onDelete, selectedDate, initialData }) => {
-    const [description, setDescription] = useState("");
-    const [stars, setStars] = useState(0);
+    // Use lazy initialization function - runs only once per mount
+    const [description, setDescription] = useState(() => initialData?.description || "");
+    const [stars, setStars] = useState(() => initialData?.stars || 0);
 
     const overlayRef = useRef(null);
     const modalRef = useRef(null);
     const starRefs = useRef([]);
-
-    // Initialize form data when modal opens
-    useEffect(() => {
-        if (isOpen && initialData) {
-            setDescription(initialData.description || "");
-            setStars(initialData.stars || 0);
-        } else if (isOpen) {
-            setDescription("");
-            setStars(0);
-        }
-    }, [isOpen, initialData]);
 
     // Modal entrance/exit animations
     useGSAP(() => {
@@ -31,7 +21,7 @@ const HangoutModal = ({ isOpen, onClose, onSave, onDelete, selectedDate, initial
             gsap.fromTo(
                 overlayRef.current,
                 { opacity: 0 },
-                { opacity: 1, duration: 0.3, ease: "power2.out", force3D : true }
+                { opacity: 1, duration: 0.3, ease: "power2.out", force3D: true }
             );
 
             gsap.fromTo(
@@ -44,14 +34,13 @@ const HangoutModal = ({ isOpen, onClose, onSave, onDelete, selectedDate, initial
                     duration: 0.4,
                     ease: "back.out(1.7)",
                     delay: 0.1,
-                    force3D : true
+                    force3D: true
                 }
             );
         }
     }, [isOpen]);
 
     const handleClose = () => {
-        // Exit animation
         const tl = gsap.timeline({
             onComplete: () => {
                 onClose();
@@ -74,7 +63,10 @@ const HangoutModal = ({ isOpen, onClose, onSave, onDelete, selectedDate, initial
     };
 
     const handleSave = () => {
-        onSave({ description, stars });
+        onSave({
+            description: description.trim() || "",
+            stars: stars > 0 ? stars : undefined
+        });
         handleClose();
     };
 
@@ -125,7 +117,7 @@ const HangoutModal = ({ isOpen, onClose, onSave, onDelete, selectedDate, initial
     return (
         <div
             ref={overlayRef}
-            className="fixed inset-0 bg-black/20  bg-opacity-70 flex items-center justify-center z-[10000]"
+            className="fixed inset-0 bg-black/20 bg-opacity-70 flex items-center justify-center z-[10000]"
             onClick={handleClose}
         >
             <div
@@ -164,7 +156,7 @@ const HangoutModal = ({ isOpen, onClose, onSave, onDelete, selectedDate, initial
                 {/* Star Rating */}
                 <div className="mb-6">
                     <label className="block text-sm font-medium text-gray-400 mb-2">
-                        Voto da 1-5? (campo obbligatorio)
+                        Voto da 1-5? (opzionale)
                     </label>
                     <div className="flex gap-2 justify-center">
                         {[1, 2, 3, 4, 5].map((star) => (
@@ -203,7 +195,7 @@ const HangoutModal = ({ isOpen, onClose, onSave, onDelete, selectedDate, initial
                             onMouseUp={(e) => {
                                 gsap.to(e.currentTarget, { scale: 1.05, duration: 0.1 });
                             }}
-                            className="font-semibold  px-4 py-2 bg-red-800 text-white rounded-lg hover:bg-red-700 transition-colors"
+                            className="font-semibold px-4 py-2 bg-red-800 text-white rounded-lg hover:bg-red-700 transition-colors"
                         >
                             Elimina
                         </button>
@@ -222,7 +214,7 @@ const HangoutModal = ({ isOpen, onClose, onSave, onDelete, selectedDate, initial
                         onMouseUp={(e) => {
                             gsap.to(e.currentTarget, { scale: 1.05, duration: 0.1 });
                         }}
-                        className="font-semibold  px-4 py-2  bg-gray-700 text-gray-300 rounded-lg hover:bg-gray-600 transition-colors flex-1"
+                        className="font-semibold px-4 py-2 bg-gray-700 text-gray-300 rounded-lg hover:bg-gray-600 transition-colors flex-1"
                     >
                         Annulla
                     </button>
