@@ -53,9 +53,9 @@ const Finder = () => {
 
         <div className="bg-white flex h-full">
             <div className="sidebar">
-                {renderList("Preferiti", Object.values(locations))}
+                {renderList("Folders", Object.values(locations))}
 
-                {renderList("Progetti", locations.work.children)}
+                {renderList("Favorites", locations.work.children)}
             </div>
 
             <ul className="content">

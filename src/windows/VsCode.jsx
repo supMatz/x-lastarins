@@ -1,20 +1,18 @@
 import WindowWrapper from "#hoc/WindowWrapper.jsx";
 import {WindowControls} from "#components/index.js";
-import {educazioneCivicaSections} from "#constants/index.js";
+import {visualStudioCodeItems} from "#constants/index.js";
 import {useState} from "react";
 import {Moon, Sun, FileCode, Globe, Cpu, Shield} from "lucide-react";
 
 const VsCode = () => {
-    const [activeTab, setActiveTab] = useState(educazioneCivicaSections[0].id);
+    const [activeTab, setActiveTab] = useState(visualStudioCodeItems[0].id);
     const [theme, setTheme] = useState("dark"); // "dark" o "light"
 
-    const currentSection = educazioneCivicaSections.find(s => s.id === activeTab);
+    const currentSection = visualStudioCodeItems.find(s => s.id === activeTab);
 
     const getIcon = (iconName) => {
         const icons = {
-            "/icons/globe.svg": <Globe className="w-5 h-5" />,
             "/icons/cpu.svg": <Cpu className="w-5 h-5" />,
-            "/icons/shield.svg": <Shield className="w-5 h-5" />,
         };
         return icons[iconName] || <FileCode className="w-5 h-5" />;
     };
@@ -41,7 +39,7 @@ const VsCode = () => {
             <div className={`flex h-full ${theme === "dark" ? "vscode-dark" : "vscode-light"}`}>
                 {/* Sidebar con Tab verticali */}
                 <div className="vscode-sidebar">
-                    {educazioneCivicaSections.map((section) => (
+                    {visualStudioCodeItems.map((section) => (
                         <div
                             key={section.id}
                             onClick={() => setActiveTab(section.id)}
@@ -59,7 +57,7 @@ const VsCode = () => {
                     <div className="vscode-tab-bar">
                         <div className="vscode-file-tab">
                             <FileCode className="w-4 h-4" />
-                            <span>{currentSection?.title}.md</span>
+                            <span>{currentSection?.title}</span>
                         </div>
                     </div>
 

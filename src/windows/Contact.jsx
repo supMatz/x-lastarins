@@ -6,15 +6,15 @@ const Contact = () => {
     return <>
         <div id="window-header">
             <WindowControls target="contact"/>
-            <h2>Contattami</h2>
+            <h2>Contact Me Bih</h2>
         </div>
 
         <div className="p-5 space-y-5">
             <img src="/images/pfp.png" alt="" className="w-20 rounded-full select-none" draggable={false} />
 
-            <h3>Let's Connect</h3>
-            <p>Problemi? Domande e approfondimenti? Mi trovi qua: <br/>
-               mattiacerioni12@gmail.com
+            <h3>Al posto di ghostarmi cessa</h3>
+            <p>Puoi scrivermi su : <strong>mattiacerioni12@gmail.com</strong> <br/>
+                Ma anche su :
             </p>
 
             <ul>

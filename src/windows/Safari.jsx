@@ -1,12 +1,10 @@
 import { WindowControls } from "#components/index.js";
 import WindowWrapper from "#hoc/WindowWrapper.jsx";
-import { areeUmanistiche } from "#constants/index.js";
 import {
     ChevronRight,
     ChevronLeft,
     PanelLeft,
     ShieldHalf,
-    MoveRight,
     Search,
     Share,
     Copy,
@@ -35,7 +33,7 @@ const Safari = () => {
                         <input
                             className="flex-1"
                             type="text"
-                            placeholder="Cerca o inserisci il nome di un sito"
+                            placeholder="maps.google.com"
                         />
                     </div>
                 </div>
@@ -48,30 +46,17 @@ const Safari = () => {
             </div>
 
             <div className="blog">
-                <h2>Area Umanistica</h2>
+                <h2>When you want my doors are wide open ho!</h2>
 
-                <div className="space-y-8">
-                    Under Contruction...
-
-                    {/*POI ANDRANNO RI-IMPORTATE LE IMMAGINI NEL PARAMETRO DEL MAP (image)*/}
-
-                    {areeUmanistiche.map(({id, title, date, description}) => (
-                        <div key={id} className="blog-post">
-                            <div className="col-span-2">
-                                {/*<img src={image} alt={title}/> */}
-                            </div>
-
-                            <div className="content">
-                                <p>{date}</p>
-                                <h3>{title}</h3>
-                                <p>{description}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d726874.6643263723!2d11.138949639186974!3d44.63067809982698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m5!1s0x4786c7282bbf8b69%3A0x8b74838266015607!2sVia%20Privata%20Belgirate%2C%2020%2C%20Milan%2C%20Metropolitan%20City%20of%20Milan!3m2!1d45.495150599999995!2d9.202730899999999!4m3!3m2!1d43.53065!2d13.226412!5e0!3m2!1sit!2sit!4v1765310746226!5m2!1sit!2sit"
+                    width="700" height="450" loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </>
-    )}
+    )
+}
 const SafariWindow = WindowWrapper(Safari, "safari");
 
 export default SafariWindow;

@@ -14,7 +14,7 @@ const File = () => {
         <>
             <div id="window-header">
                 <WindowControls target="viewer" />
-                <h2>{name}</h2>
+                <h2 className="ml-3">{name}</h2>
             </div>
 
             <div className="p-5 space-y-6 bg-white rounded-b-lg overflow-hidden">

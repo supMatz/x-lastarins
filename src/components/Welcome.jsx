@@ -73,16 +73,13 @@ const setUpTextHover = (container, type) => {
 const Welcome = () => {
     const titleRef = useRef(null);
     const subtitleRef = useRef(null);
-    const secondSubtitleRef = useRef(null);
 
     useGSAP(() => {
 
         const titleCleanUp = setUpTextHover(titleRef.current, 'title');
         const subtitleCleanUp = setUpTextHover(subtitleRef.current, 'subtitle');
-        const secondSubtitleCleanUp = setUpTextHover(secondSubtitleRef.current, 'subtitle');
 
         return () => {
-            secondSubtitleCleanUp();
             subtitleCleanUp();
             titleCleanUp();
         }
@@ -91,29 +88,20 @@ const Welcome = () => {
     return <section id="welcome">
         <p ref={subtitleRef} className="tracking-wider">
             {renderText(
-                "Ciao, sono Mattia!",
+                "Ciao vita mia,",
                 'text-3xl font-georama',
                 100,
             )}
             <br/>
         </p>
 
-        <p ref={secondSubtitleRef} className="tracking-wider">
-            {renderText(
-                "Benvenuto nel mio",
-                'text-3xl font-georama',
-                100,
-            )}
-        </p>
-
-
-        <h1 ref={titleRef} className="mt-7">
-            {renderText("portfolio", 'text-9xl italic font-georama')}
+        <h1 ref={titleRef}>
+            {renderText("tiamo!", 'text-9xl italic font-georama')}
         </h1>
 
         <div className="small-screen">
             <p>
-                Questo Portfolio è stato creato solo per schermi di dimensioni desktop e tablet.
+                Vita devi guardarlo dal tablet o dal pc
             </p>
         </div>
     </section>;

@@ -13,13 +13,12 @@ const Terminal = () => {
 
             <div className="techstack">
                 <p>
-                    <span className="font-bold">@matt-crn % </span>
-                    show tech stack -l
+                    <span className="font-bold">@emmix % </span>
+                    cat whos_more.txt
                 </p>
 
                 <div className="label">
-                    <p className="w-32">Categoria</p>
-                    <p>Tecnologie</p>
+                    <p className="w-32">Who's more...</p>
                 </div>
 
                 <ul className="content">
@@ -30,7 +29,7 @@ const Terminal = () => {
                             <ul>
                                 {items.map((item, i) => (
                                     <li key={i}>
-                                        {item}{i < items.length - 1 ? "," : "."}
+                                        {item}
                                     </li>
                                 ))}
                             </ul>
@@ -41,7 +40,7 @@ const Terminal = () => {
                 <div className="footnote">
                     <p>
                         <Check className="check" size={20} />
-                        5 of 5 loaded successfully (100%)
+                        7 of 7 loaded successfully (100%)
                     </p>
 
                     <p className="text-black">

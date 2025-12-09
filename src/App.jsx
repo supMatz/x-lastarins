@@ -4,12 +4,11 @@ import gsap from "gsap";
 import {
     Safari,
     Terminal,
-    Resume,
     Finder,
     File,
     Contact,
-    Photos,
-    VsCode
+    VsCode,
+    Calendar,
 } from "#windows/index.js";
 
 gsap.registerPlugin(Draggable);
@@ -23,13 +22,12 @@ function App() {
             <Dock />
 
             {/* Finestre App */}
-            <Terminal />
-            <Safari />
-            <Resume />
             <Finder />
-            <Contact />
-            <Photos />
+            <Safari />
+            <Calendar/>
             <VsCode/>
+            <Contact />
+            <Terminal />
 
             {/* Visualizzatore File */}
             <File />

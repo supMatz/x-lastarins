@@ -17,7 +17,6 @@ const NavBar = () => {
         <nav className="flex items-center justify-between px-6 py-4 font-sans tracking-wide">
             <div className="flex items-center gap-4">
                 <img src='/images/logo.svg' alt='logo'/>
-                <p className="font-semibold">Portfolio Cerioni</p>
             </div>
 
             <div className="absolute left-1/2 -translate-x-1/2 font-semibold">
