@@ -597,9 +597,6 @@ const monthNames = [
 
 export const dayLabels = ["S", "M", "T", "W", "T", "F", "S"];
 
-/**
- * Get month data for calendar rendering
- */
 export const getMonthData = (year, month) => {
     const firstDay = new Date(year, month, 1);
     const lastDay = new Date(year, month + 1, 0);
@@ -677,18 +674,14 @@ const WORK_LOCATION = {
                     fileType: "txt",
                     position: "top-5 left-10",
                     description: [
-                        "Ciao, ricordo molto bene quando ti ho vista per la prima volta," +
-                        "ricordo anche come hai salutato mio padre e non me.. ma questa è " +
-                        "un'altra storia. Credo avessi un top rosso e dei pantaloncini neri, " +
-                        "fatto sta che ti ho notata subbbito e speravo mi cagassi un minimo " +
-                        "anche se così non è stato, porcaccia la madre. Nah il nonchalant final " +
+                        "Ciao, ricordo molto bene quando ti ho vista in Sardegna," +
+                        " ricordo anche come hai salutato mio padre e non me.. ma questa è " +
+                        "un'altra storia. Credo indossassi un top rosso e dei pantaloncini neri, " +
+                        "fatto sta che ti ho notata subbbito, ma il nonchalant final " +
                         "boss aveva altro a cui pensare (al suo pensiero giornaliero... forse) " +
                         "fatto sta che già al tempo stavo plottando qualcosa di molto malefico " +
                         "andarti a parlare, cosa che non ho nemmeno dovuto fare visto che alla fine " +
-                        "la montagna è andata da Maometto (non per tua voltà contraria  ahimè). Vabbe comunque " +
-                        "molto interlinked anche se avevo la paura che fosse solo una cosa momentanea. " +
-                        "Paura durata ben poco visto che ci siamo visti lo stesso mese, a luglio (prima di " +
-                        "partire per l'Elba e tutti i mesi fino ad ora).",
+                        "la montagna è andata da Maometto (non per tua voltà contraria  ahimè).",
 
                     ],
                 },
